@@ -113,8 +113,8 @@ export function CombinedCalculator() {
       .replace(/mod/g, "%")
       .replace(/!/g, "factorial(");
     // Add missing closing parentheses for factorial
-    const open = (processed.match(/factorial\(/g) || []).length;
-    const close = (processed.match(/\)/g) || []).length;
+    const open = (processed.match(/factorial\\(/g) || []).length;
+    const close = (processed.match(/\\)/g) || []).length;
     for (let i = 0; i < open - close; i++) {
       processed += ")";
     }
@@ -201,42 +201,49 @@ export function CombinedCalculator() {
   };
 
   return (
-    <div className="w-full max-w-xs mx-auto p-4 flex flex-col gap-4">
-      <div className="flex justify-between items-center mb-2">
-        <button
-          onClick={() => setMode(mode === "standard" ? "scientific" : "standard")}
-          className="px-4 py-2 bg-muted hover:bg-muted/80 rounded-md text-sm"
-        >
-          Mode: {mode === "standard" ? "Scientific" : "Standard"}
-        </button>
-        <span className="text-sm">{isDeg ? "Deg" : "Rad"}</span>
-      </div>
-      <div className="mb-4 p-4 bg-card text-card-foreground rounded-xl shadow-sm">
-        <div className="text-right text-2xl">{display || "0"}</div>
-      </div>
-      <div className="grid grid-cols-4 gap-2">
-        {buttons.flat().map((btn, idx) => (
+    <div className="w-full max-w-4xl mx-auto p-4 flex flex-col lg:flex-row gap-4">
+      {/* Left side: Display, History, Mode toggle */}
+      <div className="flex flex-col flex-1 gap-4">
+        <div className="flex justify-between items-center mb-2">
           <button
-            key={idx}
-            onClick={() => handleButtonClick(btn)}
-            className="p-4 bg-muted hover:bg-muted/80 rounded-md text-lg"
+            onClick={() => setMode(mode === "standard" ? "scientific" : "standard")}
+            className="px-4 py-2 bg-muted hover:bg-muted/80 rounded-md text-sm"
           >
-            {btn}
+            Mode: {mode === "standard" ? "Scientific" : "Standard"}
           </button>
-        ))}
+          <span className="text-sm">{isDeg ? "Deg" : "Rad"}</span>
+        </div>
+        <div className="p-4 bg-card text-card-foreground rounded-xl shadow-sm">
+          <div className="text-right text-2xl">{display || "0"}</div>
+        </div>
+        <div className="mt-4">
+          <h3 className="text-sm font-semibold mb-1">History</h3>
+          <div className="max-h-32 overflow-y-auto bg-card p-2 rounded-md">
+            {history.length === 0 ? (
+              <p className="text-sm text-muted-foreground">No history yet.</p>
+            ) : (
+              history.map((h, i) => (
+                <p key={i} className="text-sm">
+                  {h}
+                </p>
+              ))
+            )}
+          </div>
+        </div>
       </div>
-      <div className="mt-4">
-        <h3 className="text-sm font-semibold mb-1">History</h3>
-        <div className="max-h-32 overflow-y-auto bg-card p-2 rounded-md">
-          {history.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No history yet.</p>
-          ) : (
-            history.map((h, i) => (
-              <p key={i} className="text-sm">
-                {h}
-              </p>
-            ))
-          )}
+
+      {/* Right side: Buttons */}
+      <div className="flex-1">
+        <div className="grid grid-cols-4 gap-2">
+          {buttons.flat().map((btn, idx) => (
+            <button
+              key={idx}
+              onClick={() => handleButtonClick(btn)}
+              className="p-4 bg-muted hover:bg-muted/80 rounded-md text-lg"
+            >
+              {btn}
+            </button>
+          ))}
         </div>
       </div>
     </div>
