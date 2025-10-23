@@ -9,6 +9,32 @@ export function CombinedCalculator() {
   const [memory, setMemory] = useState<number | null>(null);
   const [isDeg, setIsDeg] = useState(true);
 
+  // Helper functions
+  const degToRad = (deg: number): number => (deg * Math.PI) / 180;
+
+  const factorial = (n: number): number => {
+    if (n < 0) return NaN;
+    if (n === 0) return 1;
+    return n * factorial(n - 1);
+  };
+
+  // Dummy references to silence unused variable warnings
+  const _ = degToRad;
+  const __ = factorial;
+
+  const evaluate = () => {
+    if (!display) return;
+    try {
+      const expr = preprocess(display);
+      // eslint-disable-next-line no-eval
+      const result = eval(expr);
+      setDisplay(String(result));
+      setHistory((prev) => [...prev, `${display} = ${result}`]);
+    } catch {
+      setDisplay("Error");
+    }
+  };
+
   // Keyboard support
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -53,7 +79,7 @@ export function CombinedCalculator() {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [display]);
+  }, [display, evaluate]);
 
   const append = (value: string) => {
     setDisplay((prev) => prev + value);
@@ -71,19 +97,6 @@ export function CombinedCalculator() {
     setDisplay((prev) => prev.slice(0, -1));
   };
 
-  const evaluate = () => {
-    if (!display) return;
-    try {
-      const expr = preprocess(display);
-      // eslint-disable-next-line no-eval
-      const result = eval(expr);
-      setDisplay(String(result));
-      setHistory((prev) => [...prev, `${display} = ${result}`]);
-    } catch {
-      setDisplay("Error");
-    }
-  };
-
   const preprocess = (expr: string) => {
     // Replace custom operators with JS equivalents
     let processed = expr
@@ -99,8 +112,6 @@ export function CombinedCalculator() {
       .replace(/log/g, "Math.log10")
       .replace(/mod/g, "%")
       .replace(/!/g, "factorial(");
-    // Close factorial parentheses
-    processed = processed.replace(/factorial\(/g, "factorial(");
     // Add missing closing parentheses for factorial
     const open = (processed.match(/factorial\(/g) || []).length;
     const close = (processed.match(/\)/g) || []).length;
@@ -108,14 +119,6 @@ export function CombinedCalculator() {
       processed += ")";
     }
     return processed;
-  };
-
-  const degToRad = (deg: number) => (deg * Math.PI) / 180;
-
-  const factorial = (n: number) => {
-    if (n < 0) return NaN;
-    if (n === 0) return 1;
-    return n * factorial(n - 1);
   };
 
   // Memory functions
@@ -206,9 +209,7 @@ export function CombinedCalculator() {
         >
           Mode: {mode === "standard" ? "Scientific" : "Standard"}
         </button>
-        <span className="text-sm">
-          {isDeg ? "Deg" : "Rad"}
-        </span>
+        <span className="text-sm">{isDeg ? "Deg" : "Rad"}</span>
       </div>
       <div className="mb-4 p-4 bg-card text-card-foreground rounded-xl shadow-sm">
         <div className="text-right text-2xl">{display || "0"}</div>
