@@ -113,8 +113,8 @@ export function CombinedCalculator() {
       .replace(/mod/g, "%")
       .replace(/!/g, "factorial(");
     // Add missing closing parentheses for factorial
-    const open = (processed.match(/factorial\\(/g) || []).length;
-    const close = (processed.match(/\\)/g) || []).length;
+    const open = (processed.match(/factorial\(/g) || []).length;
+    const close = (processed.match(/\)/g) || []).length;
     for (let i = 0; i < open - close; i++) {
       processed += ")";
     }
