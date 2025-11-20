@@ -238,3 +238,119 @@
 
 # 2025-11-20 14:47:43.445477
 +apply changes
+
+# 2025-11-20 15:09:15.794086
++Create a responsive calculator app with two modes — Standard and Scientific — that users can toggle between using a simple switch button.
++
++Requirements:
++
++UI:
++
++Clean, minimal interface similar to Windows Calculator (dark mode).
++
++A toggle or button at the top to switch between “Standard” and “Scientific” modes.
++
++A display area for showing current input and results.
++
++A history panel to show recent calculations.
++
++Standard Mode Features:
++
++Basic arithmetic: addition (+), subtraction (−), multiplication (×), division (÷).
++
++Percentage (%), square (x²), square root (√x), and reciprocal (1/x).
++
++Clear (C), Clear Entry (CE), and backspace options.
++
++Support for keyboard input.
++
++Scientific Mode Features:
++
++Include all Standard mode features.
++
++Add advanced operations: exponent (x^y), factorial (n!), modulus (mod), logarithm (log, ln), π, e, parentheses, and trigonometric functions (sin, cos, tan).
++
++Option for degree/radian toggle.
++
++Functionality:
++
++Accurate mathematical parsing and operator precedence.
++
++Smooth transition when toggling between modes (keep current input and result intact).
++
++Store and recall memory values (MC, MR, M+, M−, MS).
++
++Tech Stack Suggestion:
++
++Frontend: React or Vue (or any framework supported by the AI).
++
++Styling: Tailwind CSS or Material UI.
++
++State management: React hooks or Vue composition API.
++
++Bonus:
++
++Optional theme toggle (Light/Dark).
++
++Mobile-responsive layout.
+
+# 2025-11-20 15:09:15.794667
++Create a responsive calculator app with two modes — Standard and Scientific — that users can toggle between using a simple switch button.
++
++Requirements:
++
++UI:
++
++Clean, minimal interface similar to Windows Calculator (dark mode).
++
++A toggle or button at the top to switch between “Standard” and “Scientific” modes.
++
++A display area for showing current input and results.
++
++A history panel to show recent calculations.
++
++Standard Mode Features:
++
++Basic arithmetic: addition (+), subtraction (−), multiplication (×), division (÷).
++
++Percentage (%), square (x²), square root (√x), and reciprocal (1/x).
++
++Clear (C), Clear Entry (CE), and backspace options.
++
++Support for keyboard input.
++
++Scientific Mode Features:
++
++Include all Standard mode features.
++
++Add advanced operations: exponent (x^y), factorial (n!), modulus (mod), logarithm (log, ln), π, e, parentheses, and trigonometric functions (sin, cos, tan).
++
++Option for degree/radian toggle.
++
++Functionality:
++
++Accurate mathematical parsing and operator precedence.
++
++Smooth transition when toggling between modes (keep current input and result intact).
++
++Store and recall memory values (MC, MR, M+, M−, MS).
++
++Tech Stack Suggestion:
++
++Frontend: React or Vue (or any framework supported by the AI).
++
++Styling: Tailwind CSS or Material UI.
++
++State management: React hooks or Vue composition API.
++
++Bonus:
++
++Optional theme toggle (Light/Dark).
++
++Mobile-responsive layout.
+
+# 2025-11-20 15:10:02.330484
++apply changes
+
+# 2025-11-20 15:10:02.330864
++apply changes
