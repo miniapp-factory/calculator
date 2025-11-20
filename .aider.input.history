@@ -1,0 +1,124 @@
+
+# 2025-11-20 14:27:06.200690
++Code the following app
++```
++Create a responsive calculator app with two modes — Standard and Scientific — that users can toggle between using a simple switch button.
++
++Requirements:
++
++UI:
++
++Clean, minimal interface similar to Windows Calculator (dark mode).
++
++A toggle or button at the top to switch between “Standard” and “Scientific” modes.
++
++A display area for showing current input and results.
++
++A history panel to show recent calculations.
++
++Standard Mode Features:
++
++Basic arithmetic: addition (+), subtraction (−), multiplication (×), division (÷).
++
++Percentage (%), square (x²), square root (√x), and reciprocal (1/x).
++
++Clear (C), Clear Entry (CE), and backspace options.
++
++Support for keyboard input.
++
++Scientific Mode Features:
++
++Include all Standard mode features.
++
++Add advanced operations: exponent (x^y), factorial (n!), modulus (mod), logarithm (log, ln), π, e, parentheses, and trigonometric functions (sin, cos, tan).
++
++Option for degree/radian toggle.
++
++Functionality:
++
++Accurate mathematical parsing and operator precedence.
++
++Smooth transition when toggling between modes (keep current input and result intact).
++
++Store and recall memory values (MC, MR, M+, M−, MS).
++
++Tech Stack Suggestion:
++
++Frontend: React or Vue (or any framework supported by the AI).
++
++Styling: Tailwind CSS or Material UI.
++
++State management: React hooks or Vue composition API.
++
++Bonus:
++
++Optional theme toggle (Light/Dark).
++
++Mobile-responsive layout.
++
++Goal: Build an intuitive, aesthetic calculator app that users can switch between simple and scientific views instantly.
++```
++
++Generate an app logo and update the app metadata title and description.
+
+# 2025-11-20 14:27:06.201118
++Code the following app
++```
++Create a responsive calculator app with two modes — Standard and Scientific — that users can toggle between using a simple switch button.
++
++Requirements:
++
++UI:
++
++Clean, minimal interface similar to Windows Calculator (dark mode).
++
++A toggle or button at the top to switch between “Standard” and “Scientific” modes.
++
++A display area for showing current input and results.
++
++A history panel to show recent calculations.
++
++Standard Mode Features:
++
++Basic arithmetic: addition (+), subtraction (−), multiplication (×), division (÷).
++
++Percentage (%), square (x²), square root (√x), and reciprocal (1/x).
++
++Clear (C), Clear Entry (CE), and backspace options.
++
++Support for keyboard input.
++
++Scientific Mode Features:
++
++Include all Standard mode features.
++
++Add advanced operations: exponent (x^y), factorial (n!), modulus (mod), logarithm (log, ln), π, e, parentheses, and trigonometric functions (sin, cos, tan).
++
++Option for degree/radian toggle.
++
++Functionality:
++
++Accurate mathematical parsing and operator precedence.
++
++Smooth transition when toggling between modes (keep current input and result intact).
++
++Store and recall memory values (MC, MR, M+, M−, MS).
++
++Tech Stack Suggestion:
++
++Frontend: React or Vue (or any framework supported by the AI).
++
++Styling: Tailwind CSS or Material UI.
++
++State management: React hooks or Vue composition API.
++
++Bonus:
++
++Optional theme toggle (Light/Dark).
++
++Mobile-responsive layout.
++
++Goal: Build an intuitive, aesthetic calculator app that users can switch between simple and scientific views instantly.
++```
++
++Generate an app logo and update the app metadata title and description.
