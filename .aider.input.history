@@ -354,3 +354,77 @@
 
 # 2025-11-20 15:10:02.330864
 +apply changes
+
+# 2025-11-21 03:18:02.306703
++Build a responsive Calculator Mini-App with a clean interface that includes both Standard and Scientific modes using a toggle switch.
++
++Core Requirements
++
++A top-bar toggle to switch between Standard Mode and Scientific Mode.
++
++Smooth mode switching without resetting current input.
++
++Display area showing current input, past operation, and result.
++
++Standard Mode Functions
++
++Basic operations: +, −, ×, ÷
++
++%, x², √x, 1/x
++
++CE, C, Backspace
++
++Decimal input
++
++Keyboard support
++
++Scientific Mode Functions
++
++Everything from Standard mode
++
++sin, cos, tan (degree/radian toggle)
++
++log, ln, π, e
++
++xʸ, n!, mod
++
++Parentheses handling
++
++Operator precedence + accurate parsing
+
+# 2025-11-21 03:18:02.307137
++Build a responsive Calculator Mini-App with a clean interface that includes both Standard and Scientific modes using a toggle switch.
++
++Core Requirements
++
++A top-bar toggle to switch between Standard Mode and Scientific Mode.
++
++Smooth mode switching without resetting current input.
++
++Display area showing current input, past operation, and result.
++
++Standard Mode Functions
++
++Basic operations: +, −, ×, ÷
++
++%, x², √x, 1/x
++
++CE, C, Backspace
++
++Decimal input
++
++Keyboard support
++
++Scientific Mode Functions
++
++Everything from Standard mode
++
++sin, cos, tan (degree/radian toggle)
++
++log, ln, π, e
++
++xʸ, n!, mod
++
++Parentheses handling
++
++Operator precedence + accurate parsing
