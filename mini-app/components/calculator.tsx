@@ -88,7 +88,7 @@ export default function Calculator() {
     ["sin", "cos", "tan", "π"],
     ["ln", "log", "√", "x²"],
     ["n!", "mod", "(", ")"],
-    ["π", "e", "x^y", "1/x"],
+    ["e", "x^y", "1/x", ""],
     ["C", "CE", "⌫", "="],
   ];
 
