@@ -76,6 +76,8 @@ export default function Calculator() {
     }
   };
 
+  const clearHistory = () => setHistory([]);
+
   const buttonsStandard = [
     ["7", "8", "9", "/"],
     ["4", "5", "6", "*"],
@@ -164,7 +166,15 @@ export default function Calculator() {
       </div>
       {history.length > 0 && (
         <div className="mt-4">
-          <h3 className="text-sm font-semibold mb-1">History</h3>
+          <h3 className="text-sm font-semibold mb-1 flex items-center justify-between">
+            History
+            <button
+              className="text-xs text-muted-foreground hover:underline"
+              onClick={clearHistory}
+            >
+              Clear History
+            </button>
+          </h3>
           <ul className="space-y-1 text-sm">
             {history.map((h, idx) => (
               <li key={idx}>{h}</li>
