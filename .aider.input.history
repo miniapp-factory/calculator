@@ -462,3 +462,17 @@
 
 # 2025-12-05 12:31:47.851689
 +apply changes
+
+# 2025-12-05 13:13:34.047706
++Determine the appropriate number of decimal places based on the user’s input.
++If the user specifies a number of decimal places, follow that exactly.
++If the user does not specify, return the result with a reasonable and clean decimal length (no unnecessary trailing zeros or numbers).
++Handle whole numbers, decimals, and complex expressions accurately.
++Always keep the decimal formatting consistent with what the user expects from the query.
+
+# 2025-12-05 13:13:34.048491
++Determine the appropriate number of decimal places based on the user’s input.
++If the user specifies a number of decimal places, follow that exactly.
++If the user does not specify, return the result with a reasonable and clean decimal length (no unnecessary trailing zeros or numbers).
++Handle whole numbers, decimals, and complex expressions accurately.
++Always keep the decimal formatting consistent with what the user expects from the query.
