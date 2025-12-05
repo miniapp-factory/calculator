@@ -25,19 +25,27 @@ const functions = {
 const operators = ["+", "-", "*", "/", "^", "%"];
 
 function evaluate(expr: string, radian: boolean) {
-  // Replace function names with Math.* equivalents
+  // Create local functions that handle radian/degree for trig
+  const localFunctions = {
+    ...functions,
+    sin: radian ? Math.sin : (x: number) => Math.sin(x * Math.PI / 180),
+    cos: radian ? Math.cos : (x: number) => Math.cos(x * Math.PI / 180),
+    tan: radian ? Math.tan : (x: number) => Math.tan(x * Math.PI / 180),
+  };
+
+  // Replace function names with localFunctions equivalents
   let replaced = expr
     .replace(/pi/g, "Math.PI")
     .replace(/e/g, "Math.E")
-    .replace(/sin/g, radian ? "Math.sin" : "Math.sin")
-    .replace(/cos/g, radian ? "Math.cos" : "Math.cos")
-    .replace(/tan/g, radian ? "Math.tan" : "Math.tan")
+    .replace(/sin/g, "localFunctions.sin")
+    .replace(/cos/g, "localFunctions.cos")
+    .replace(/tan/g, "localFunctions.tan")
     .replace(/log/g, "Math.log10")
     .replace(/ln/g, "Math.log")
     .replace(/sqrt/g, "Math.sqrt")
     .replace(/abs/g, "Math.abs")
-    .replace(/factorial/g, "functions.factorial")
-    .replace(/mod/g, "functions.mod");
+    .replace(/factorial/g, "localFunctions.factorial")
+    .replace(/mod/g, "localFunctions.mod");
 
   // Handle exponentiation
   replaced = replaced.replace(/(\d+(\.\d+)?)\^(\d+(\.\d+)?)/g, "Math.pow($1,$3)");
@@ -45,8 +53,8 @@ function evaluate(expr: string, radian: boolean) {
   // Evaluate using Function constructor
   try {
     // eslint-disable-next-line no-new-func
-    const fn = new Function("functions", `return ${replaced}`);
-    return fn(functions);
+    const fn = new Function("localFunctions", `return ${replaced}`);
+    return fn(localFunctions);
   } catch {
     return NaN;
   }
@@ -90,7 +98,7 @@ export default function Calculator() {
     ["sin", "cos", "tan", "π"],
     ["ln", "log", "√", "x²"],
     ["n!", "mod", "(", ")"],
-    ["e", "x^y", "1/x", ""],
+    ["e", "x^y", "1/x"],
     ["C", "CE", "⌫", "="],
   ];
 
@@ -154,7 +162,7 @@ export default function Calculator() {
         )}
       </div>
       <div className="grid grid-cols-4 gap-2">
-        {(mode === "standard" ? buttonsStandard : buttonsScientific).flat().map((btn) => (
+        {(mode === "standard" ? buttonsStandard : buttonsScientific).flat().filter(Boolean).map((btn) => (
           <button
             key={btn}
             className="p-2 bg-muted hover:bg-muted-foreground text-lg rounded"
