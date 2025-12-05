@@ -22,6 +22,12 @@ const functions = {
   mod: (a: number, b: number) => a % b,
 };
 
+function formatResult(value: number, decimalPlaces: number | null): string {
+  if (Number.isInteger(value)) return value.toString();
+  if (decimalPlaces !== null) return value.toFixed(decimalPlaces);
+  return value.toString().replace(/\.?0+$/, '');
+}
+
 const operators = ["+", "-", "*", "/", "^", "%"];
 
 function evaluate(expr: string, radian: boolean) {
@@ -65,6 +71,7 @@ export default function Calculator() {
   const [expression, setExpression] = useState("");
   const [result, setResult] = useState<string | null>(null);
   const [radian, setRadian] = useState(true);
+  const [decimalPlaces, setDecimalPlaces] = useState<number | null>(null);
   const [history, setHistory] = useState<string[]>([]);
 
   const handleButton = (value: string) => {
@@ -75,8 +82,9 @@ export default function Calculator() {
       setExpression(expression.slice(0, -1));
     } else if (value === "=") {
       const res = evaluate(expression, radian);
-      setResult(res.toString());
-      setHistory([`${expression} = ${res}`, ...history].slice(0, 10));
+      const formatted = formatResult(res, decimalPlaces);
+      setResult(formatted);
+      setHistory([`${expression} = ${formatted}`, ...history].slice(0, 10));
     } else if (value === "⌫") {
       setExpression(expression.slice(0, -1));
     } else {
@@ -157,6 +165,18 @@ export default function Calculator() {
       </div>
       <div className="bg-background p-2 rounded mb-4">
         <div className="text-right text-2xl font-mono">{expression || "0"}</div>
+        <div className="mt-2 flex items-center space-x-2">
+          <label className="text-sm">Decimal places:</label>
+          <input
+            type="number"
+            min="0"
+            value={decimalPlaces ?? ''}
+            onChange={(e) =>
+              setDecimalPlaces(e.target.value === '' ? null : parseInt(e.target.value))
+            }
+            className="w-16 p-1 border rounded text-sm"
+          />
+        </div>
         {result !== null && (
           <div className="text-right text-xl font-mono text-primary">{result}</div>
         )}
