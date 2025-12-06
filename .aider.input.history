@@ -476,3 +476,11 @@
 +If the user does not specify, return the result with a reasonable and clean decimal length (no unnecessary trailing zeros or numbers).
 +Handle whole numbers, decimals, and complex expressions accurately.
 +Always keep the decimal formatting consistent with what the user expects from the query.
+
+# 2025-12-06 14:23:43.911292
++The scientific mode buttons functionality is not working properly. Fix it to work properly.
++Also the % button is percentage button not modulus button and function like a percentage button.
+
+# 2025-12-06 14:23:43.914760
++The scientific mode buttons functionality is not working properly. Fix it to work properly.
++Also the % button is percentage button not modulus button and function like a percentage button.
