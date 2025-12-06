@@ -484,3 +484,11 @@
 # 2025-12-06 14:23:43.914760
 +The scientific mode buttons functionality is not working properly. Fix it to work properly.
 +Also the % button is percentage button not modulus button and function like a percentage button.
+
+# 2025-12-06 14:49:00.458059
++For the percentile assume a number is x then x% means x/100
++Also assume x and y are two numbers then x%y means (x/100)*y
+
+# 2025-12-06 14:49:00.459579
++For the percentile assume a number is x then x% means x/100
++Also assume x and y are two numbers then x%y means (x/100)*y
